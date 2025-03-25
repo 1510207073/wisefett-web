@@ -157,8 +157,8 @@
                   下载 macOS 版本
                   <span class="chip-select-wrapper">
                     - <select v-model="selectedMacVersion" class="inline-select-btn">
-                      <option value="x64">Intel 版本</option>
-                      <option value="arm64">Apple Silicon 版本</option>
+                      <option value="x64">Intel</option>
+                      <option value="arm64">Apple Silicon</option>
                     </select>
                   </span>
                 </a>
@@ -1112,7 +1112,7 @@ a {
 .download-card {
   background-color: rgba(40, 40, 40, 0.5);
   text-align: center;
-  min-width: 320px;
+  width: 450px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
   border-radius: 20px;
@@ -1178,7 +1178,7 @@ a {
   font-weight: inherit;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 0 15px 0 0;
+  padding: 0 0 0 0;
   appearance: none;
   -webkit-appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
