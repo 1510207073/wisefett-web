@@ -45,21 +45,24 @@
         <section id="hero" class="section hero-section" :class="{ active: currentSection === 'hero' }" data-section="hero">
           <div class="container">
             <div class="hero-content animate-fade-in">
-              <h2>WiseFett - AI 投资决策增强工具</h2>
-              <p>结合技术分析和人工智能，帮助投资者做出更明智的投资决策</p>
+              <h2 class="hero-title">WiseFett - AI 投资决策增强工具</h2>
+              <p class="hero-description">结合技术分析和人工智能，帮助投资者做出更明智的投资决策</p>
               <div class="cta-buttons">
-                <a href="#download" class="btn primary scroll-to" data-section="download">立即下载</a>
+                <a href="#download" class="btn primary-noshadow scroll-to" data-section="download">立即下载</a>
                 <a href="https://www.yuque.com/u12072733/os76d6/hr1gcwfipegvslim?singleDoc#" class="btn outline" target="_blank">查看文档</a>
               </div>
             </div>
           </div>
+          <div class="hero-bg"></div>
         </section>
       </el-carousel-item>
 
       <el-carousel-item>
         <section id="value" class="section value-section" :class="{ active: currentSection === 'value' }" data-section="value">
+          <div class="section-bg-decoration"></div>
           <div class="container">
-            <h2 class="section-title text-center mb-2">产品特点</h2>
+            <h2 class="section-title text-center mb-4">产品特点</h2>
+            <p class="section-subtitle text-center mb-5">为投资决策提供全方位的技术支持与智能辅助</p>
             <div class="value-wrapper">
               <div class="value-item">
                 <div class="value-icon-container">
@@ -125,16 +128,29 @@
 
       <el-carousel-item>
         <section id="download" class="section download-section" :class="{ active: currentSection === 'download' }" data-section="download">
+          <div class="download-bg-decoration"></div>
           <div class="container">
-            <h2 class="section-title text-center mb-3">立即下载</h2>
+            <h2 class="section-title text-center mb-4">立即下载</h2>
+            <p class="section-subtitle text-center mb-5">选择适合您系统的版本开始使用 WiseFett</p>
             
             <div class="download-options">
               <div class="download-card card">
+                <div class="download-icon windows-icon">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 3.449L9.75 2.1V11.551H0V3.449ZM10.949 1.949L24 0V11.4H10.949V1.949ZM0 12.6H9.75V22.051L0 20.699V12.6ZM10.949 12.6H24V24L11.1 22.199" fill="#2B5DE0"/>
+                  </svg>
+                </div>
                 <h3 class="mb-3">Windows</h3>
                 <p class="mb-2">Windows 10 64位及以上</p>
                 <a href="#windows-download-link" class="btn secondary">下载 Windows 版本</a>
               </div>
               <div class="download-card card">
+                <div class="download-icon macos-icon">
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.0266 12.5C16.9275 9.45845 19.4961 8.05894 19.612 7.99172C18.2134 5.97643 16.0097 5.66095 15.2524 5.63386C13.4261 5.45044 11.6544 6.75399 10.7271 6.75399C9.77913 6.75399 8.34513 5.65269 6.79725 5.68661C4.8089 5.72054 2.96253 6.83068 1.97709 8.55226C-0.0490796 12.0669 1.46173 17.2476 3.388 20.2322C4.35251 21.6996 5.48811 23.345 6.97726 23.2772C8.42904 23.2053 8.98731 22.3393 10.7406 22.3393C12.471 22.3393 13.0023 23.2772 14.5233 23.2323C16.0851 23.2053 17.065 21.7379 17.9889 20.2547C19.0919 18.5602 19.54 16.896 19.5671 16.8281C19.5265 16.8151 17.1301 15.5658 17.0266 12.5Z" fill="#2B5DE0"/>
+                    <path d="M14.3656 3.79066C15.1499 2.82854 15.6757 1.49638 15.5316 0.144531C14.3859 0.190376 12.9747 0.928557 12.1565 1.86482C11.4261 2.69384 10.7867 4.0709 10.9579 5.37497C12.2486 5.46927 13.5544 4.7365 14.3656 3.79066Z" fill="#2B5DE0"/>
+                  </svg>
+                </div>
                 <h3 class="mb-3">macOS</h3>
                 <p class="mb-2">macOS 10.15及以上</p>
                 <a :href="downloadUrl" class="btn secondary download-with-select">
@@ -147,6 +163,10 @@
                   </span>
                 </a>
               </div>
+            </div>
+            
+            <div class="download-info text-center">
+              <p>通过下载，您同意我们的<a href="#" class="text-link">使用条款</a>和<a href="#" class="text-link">隐私政策</a></p>
             </div>
           </div>
         </section>
@@ -803,29 +823,53 @@ a {
   font-weight: 600 !important;
 }
 
-/* 首页部分 */
+/* 首页部分优化 */
 .hero-section {
   background: radial-gradient(circle at center, #212121 0%, #121212 70%);
   color: var(--light-text);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(43, 93, 224, 0.05) 0%, transparent 25%),
+    radial-gradient(circle at 85% 60%, rgba(43, 93, 224, 0.05) 0%, transparent 30%);
+  z-index: -1;
+  opacity: 0.7;
 }
 
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 
-.hero-content h2 {
-  font-size: 42px;
-  margin-bottom: 20px;
+.hero-title {
+  font-size: 48px;
+  margin-bottom: 24px;
   font-weight: 700;
+  background: linear-gradient(to right, #fff, #cfd9f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.hero-content p {
-  font-size: 20px;
-  max-width: 600px;
-  margin: 0 auto 40px;
+.hero-description {
+  font-size: 22px;
+  max-width: 650px;
+  margin: 0 auto 50px;
   opacity: 0.9;
+  line-height: 1.6;
+  color: #e0e0e0;
 }
 
 .cta-buttons {
@@ -834,26 +878,97 @@ a {
   gap: 20px;
 }
 
-/* 简介部分 */
+/* 无阴影按钮 */
+.primary-noshadow {
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+  box-shadow: none;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-noshadow:hover {
+  background-color: #1d4ad1;
+  transform: translateY(-3px);
+  box-shadow: none;
+}
+
+.primary-noshadow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.7s;
+}
+
+.primary-noshadow:hover::before {
+  left: 100%;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-description {
+    font-size: 18px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .btn {
+    min-width: 200px;
+  }
+}
+
+/* 简介部分优化 */
 .value-section {
   background-color: #181818;
   color: var(--light-text);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-bg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 90% 10%, rgba(43, 93, 224, 0.07) 0%, transparent 35%),
+    radial-gradient(circle at 10% 90%, rgba(43, 93, 224, 0.05) 0%, transparent 40%);
+  z-index: 0;
+  opacity: 0.8;
 }
 
 .section-title {
-  font-size: 36px;
+  font-size: 42px;
   background: linear-gradient(to right, #fff, #ddd);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
 }
 
 .section-subtitle {
-  font-size: 18px;
-  color: #bbb;
+  font-size: 20px;
+  color: #cecece;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 1;
+  line-height: 1.5;
 }
 
 .value-wrapper {
@@ -862,13 +977,15 @@ a {
   gap: 30px;
   margin-top: 40px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .value-item {
   background-color: rgba(40, 40, 40, 0.5);
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  padding: 35px 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
@@ -877,7 +994,9 @@ a {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .value-item:before {
@@ -905,11 +1024,12 @@ a {
 }
 
 .value-item h3 {
-  font-size: 22px;
+  font-size: 24px;
   margin-bottom: 15px;
   color: var(--light-text);
   position: relative;
   display: inline-block;
+  font-weight: 600;
 }
 
 .value-item h3:after {
@@ -929,7 +1049,7 @@ a {
 }
 
 .value-icon-container {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -941,8 +1061,8 @@ a {
 }
 
 .value-icon {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   margin: 0 auto;
   filter: drop-shadow(0 4px 6px rgba(43, 93, 224, 0.2));
   transition: filter 0.3s ease, transform 0.3s ease;
@@ -953,52 +1073,92 @@ a {
 }
 
 .value-item p {
-  color: #bbb;
-  line-height: 1.6;
+  color: #dbdbdb;
+  line-height: 1.7;
+  font-size: 16px;
 }
 
-/* 下载部分 */
+/* 下载部分优化 */
 .download-section {
   background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
   color: var(--light-text);
+  position: relative;
+  overflow: hidden;
+}
+
+.download-bg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 0% 0%, rgba(43, 93, 224, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(43, 93, 224, 0.08) 0%, transparent 50%);
+  z-index: 0;
+  opacity: 0.7;
 }
 
 .download-options {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   flex-wrap: wrap;
   margin-top: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .download-card {
   background-color: rgba(40, 40, 40, 0.5);
   text-align: center;
-  min-width: 300px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  min-width: 320px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
+  border-radius: 20px;
+  padding: 40px 30px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .download-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-  border-color: rgba(43, 93, 224, 0.3);
+  transform: translateY(-7px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  border-color: rgba(43, 93, 224, 0.35);
+}
+
+.download-icon {
+  margin-bottom: 25px;
+  opacity: 0.9;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.download-card:hover .download-icon {
+  transform: scale(1.1);
+  opacity: 1;
 }
 
 .download-card h3 {
-  font-size: 24px;
+  font-size: 28px;
   color: var(--light-text);
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .download-card p {
-  color: #bbb;
+  color: #dbdbdb;
+  font-size: 16px;
+  margin-bottom: 30px;
 }
 
 .download-with-select {
   padding-right: 15px;
   position: relative;
   text-align: left;
-  min-width: 250px;
+  min-width: 270px;
 }
 
 .chip-select-wrapper {
@@ -1026,8 +1186,51 @@ a {
   background-position: right center;
 }
 
-.inline-select-btn:focus {
-  outline: none;
+.download-info {
+  margin-top: 50px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.text-link {
+  color: var(--secondary-color);
+  text-decoration: underline;
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.text-link:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-subtitle {
+    font-size: 18px;
+  }
+  
+  .download-card {
+    min-width: 280px;
+    padding: 30px 20px;
+  }
+  
+  .download-card h3 {
+    font-size: 24px;
+  }
+  
+  .download-options {
+    gap: 30px;
+  }
+  
+  .value-item {
+    padding: 25px 20px;
+  }
 }
 
 /* 页脚样式 */
