@@ -1,0 +1,179 @@
+/* 全局CSS变量 */
+:root {
+  --primary-color: #000000;     /* 黑色 */
+  --secondary-color: #2B5DE0;   /* 蓝色主题色 */
+  --accent-color: #2B5DE0;      /* 与secondary相同，保持统一 */
+  --success-color: #2ecc71;     /* 绿色，正面指标 */
+  --danger-color: #e74c3c;      /* 红色，负面指标 */
+  --text-color: #333333;        /* 深灰色文本 */
+  --light-text: #f8f9fa;        /* 浅色文本 */
+  --background-color: #f8f9fa;  /* 浅灰色背景 */
+  --card-bg: #ffffff;           /* 卡片背景 */
+  --border-color: #e6e9f0;      /* 边框颜色 */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);  /* 阴影效果 */
+}
+
+/* 基础重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 全局字体和排版 */
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* 通用容器 */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 按钮样式 */
+.btn {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn.primary {
+  background-color: var(--primary-color);
+  color: var(--light-text);
+}
+
+.btn.secondary {
+  background-color: var(--secondary-color);
+  color: var(--light-text);
+}
+
+.btn.accent {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid currentColor;
+}
+
+/* 卡片样式 */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 24px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* 工具类 */
+.text-center {
+  text-align: center;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 2rem;
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1.5rem;
+}
+
+.mt-4 {
+  margin-top: 2rem;
+}
+
+/* 渐变背景 */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--light-text);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+} 
