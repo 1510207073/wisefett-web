@@ -60,12 +60,34 @@
             </div>
           </div>
           <div class="hero-bg"></div>
+          <!-- 添加金融相关动画背景 -->
+          <div class="finance-bg-animation">
+            <div class="stock-graph"></div>
+            <div class="stock-dots"></div>
+            <div class="stock-line line1"></div>
+            <div class="stock-line line2"></div>
+            <div class="stock-line line3"></div>
+            <div class="stock-candle candle1"></div>
+            <div class="stock-candle candle2"></div>
+            <div class="stock-candle candle3"></div>
+            <div class="stock-candle candle4"></div>
+          </div>
         </section>
       </SwiperSlide>
 
       <SwiperSlide>
         <section id="value" class="section value-section" data-section="value">
           <div class="section-bg-decoration"></div>
+          <!-- 添加金融相关动画背景 -->
+          <div class="finance-bg-animation alt">
+            <div class="data-circle circle1"></div>
+            <div class="data-circle circle2"></div>
+            <div class="data-circle circle3"></div>
+            <div class="data-flow flow1"></div>
+            <div class="data-flow flow2"></div>
+            <div class="data-flow flow3"></div>
+            <div class="data-grid"></div>
+          </div>
           <div class="container">
             <h2 class="section-title text-center mb-4">产品特点</h2>
             <p class="section-subtitle text-center mb-5">为投资决策提供全方位的技术支持与智能辅助</p>
@@ -143,6 +165,20 @@
       <SwiperSlide>
         <section id="download" class="section download-section" data-section="download">
           <div class="download-bg-decoration"></div>
+          <!-- 添加金融相关动画背景 -->
+          <div class="finance-bg-animation third">
+            <div class="market-pulse pulse1"></div>
+            <div class="market-pulse pulse2"></div>
+            <div class="market-pulse pulse3"></div>
+            <div class="market-chart"></div>
+            <div class="market-symbols">
+              <span>+</span>
+              <span>%</span>
+              <span>$</span>
+              <span>€</span>
+              <span>¥</span>
+            </div>
+          </div>
           <div class="container">
             <h2 class="section-title text-center mb-4">立即下载</h2>
             <p class="section-subtitle text-center mb-5">选择适合您系统的版本开始使用 WiseFett</p>
@@ -619,7 +655,7 @@ a {
   font-weight: 800;
   color: var(--secondary-color);
   position: relative;
-  font-style: italic;
+  /* font-style: italic; */
   letter-spacing: 2px;
   transition: all 0.3s ease;
 }
@@ -655,7 +691,7 @@ a {
   border-radius: 4px;
   font-weight: bold;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transform: rotate(10deg);
+  /* transform: rotate(10deg); */
   transition: all 0.3s ease;
 }
 
@@ -710,8 +746,13 @@ a {
 }
 
 .doc-link {
+  color: var(--light-text) !important;
+  font-weight: 500 !important;
+}
+
+.doc-link:hover {
   color: var(--secondary-color) !important;
-  font-weight: 600 !important;
+  text-decoration: none;
 }
 
 /* 首页部分优化 */
@@ -1095,6 +1136,8 @@ a {
 
 .text-link:hover {
   opacity: 1;
+  color: #4a7df2;
+  text-shadow: 0 0 8px rgba(74, 125, 242, 0.4);
   text-decoration: none;
 }
 
@@ -1364,5 +1407,295 @@ a {
 @keyframes fadeInOut {
   0%, 100% { opacity: 0.3; }
   50% { opacity: 0.7; }
+}
+
+/* 金融动画背景元素 - 共用样式 */
+.finance-bg-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* 首页 - 股票图表动画 */
+.stock-graph {
+  position: absolute;
+  width: 50%;
+  height: 30%;
+  top: 15%;
+  right: -10%;
+  border-left: 2px solid rgba(43, 93, 224, 0.4);
+  border-bottom: 2px solid rgba(43, 93, 224, 0.4);
+}
+
+.stock-dots {
+  position: absolute;
+  width: 40%;
+  height: 40%;
+  bottom: 10%;
+  left: 10%;
+  background-image: radial-gradient(circle, rgba(43, 93, 224, 0.4) 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  opacity: 0.6;
+}
+
+.stock-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(43, 93, 224, 0.6), transparent);
+  height: 2px;
+}
+
+.line1 {
+  width: 60%;
+  top: 25%;
+  right: 5%;
+  animation: stockLine 8s infinite ease-in-out;
+}
+
+.line2 {
+  width: 50%;
+  top: 40%;
+  right: 10%;
+  animation: stockLine 12s infinite ease-in-out;
+  animation-delay: 1s;
+}
+
+.line3 {
+  width: 40%;
+  top: 55%;
+  right: 15%;
+  animation: stockLine 10s infinite ease-in-out;
+  animation-delay: 2s;
+}
+
+.stock-candle {
+  position: absolute;
+  width: 6px;
+  background-color: rgba(43, 93, 224, 0.5);
+  transform-origin: bottom;
+  animation: candleScale 10s infinite ease-in-out;
+  box-shadow: 0 0 8px rgba(43, 93, 224, 0.4);
+}
+
+.candle1 {
+  height: 80px;
+  bottom: 20%;
+  right: 30%;
+  animation-delay: 0s;
+}
+
+.candle2 {
+  height: 120px;
+  bottom: 20%;
+  right: 35%;
+  animation-delay: 2s;
+}
+
+.candle3 {
+  height: 60px;
+  bottom: 20%;
+  right: 40%;
+  animation-delay: 4s;
+}
+
+.candle4 {
+  height: 100px;
+  bottom: 20%;
+  right: 45%;
+  animation-delay: 6s;
+}
+
+@keyframes stockLine {
+  0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 4px rgba(43, 93, 224, 0.2); }
+  50% { transform: translateY(20px) scale(0.97); box-shadow: 0 0 12px rgba(43, 93, 224, 0.5); }
+}
+
+@keyframes candleScale {
+  0%, 100% { transform: scaleY(1); box-shadow: 0 0 8px rgba(43, 93, 224, 0.4); }
+  50% { transform: scaleY(0.8); box-shadow: 0 0 15px rgba(43, 93, 224, 0.6); }
+}
+
+/* 第二页 - 数据流动和分析 */
+.finance-bg-animation.alt {
+  opacity: 0.25;
+}
+
+.data-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(43, 93, 224, 0.5);
+  animation: pulseCircle 15s infinite ease-in-out;
+  box-shadow: 0 0 15px rgba(43, 93, 224, 0.3);
+}
+
+.circle1 {
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.circle2 {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  right: 15%;
+  animation-delay: 5s;
+}
+
+.circle3 {
+  width: 150px;
+  height: 150px;
+  bottom: 15%;
+  left: 30%;
+  animation-delay: 10s;
+}
+
+.data-flow {
+  position: absolute;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(64, 114, 245, 0.7), transparent);
+  animation: dataFlow 8s infinite linear;
+  box-shadow: 0 0 10px rgba(43, 93, 224, 0.4);
+}
+
+.flow1 {
+  width: 40%;
+  top: 30%;
+  left: 0;
+}
+
+.flow2 {
+  width: 30%;
+  top: 60%;
+  right: 0;
+  animation-delay: 3s;
+}
+
+.flow3 {
+  width: 25%;
+  bottom: 25%;
+  left: 20%;
+  animation-delay: 6s;
+}
+
+.data-grid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: 
+    linear-gradient(rgba(43, 93, 224, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(43, 93, 224, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+@keyframes pulseCircle {
+  0%, 100% { transform: scale(1); opacity: 0.6; border-color: rgba(43, 93, 224, 0.5); }
+  50% { transform: scale(1.2); opacity: 0.4; border-color: rgba(64, 114, 245, 0.7); }
+}
+
+@keyframes dataFlow {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 1; box-shadow: 0 0 20px rgba(43, 93, 224, 0.6); }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+/* 第三页 - 市场脉冲 */
+.finance-bg-animation.third {
+  opacity: 0.2;
+}
+
+.market-pulse {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(43, 93, 224, 0.2);
+  transform: scale(0);
+  animation: marketPulse 12s infinite ease-out;
+  border: 1px solid rgba(43, 93, 224, 0.3);
+}
+
+.pulse1 {
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  left: 50%;
+  animation-delay: 0s;
+}
+
+.pulse2 {
+  width: 400px;
+  height: 400px;
+  top: 40%;
+  left: 30%;
+  animation-delay: 4s;
+}
+
+.pulse3 {
+  width: 500px;
+  height: 500px;
+  bottom: 10%;
+  right: 20%;
+  animation-delay: 8s;
+}
+
+.market-chart {
+  position: absolute;
+  width: 50%;
+  height: 30%;
+  bottom: 10%;
+  left: 5%;
+  border-top: 2px solid rgba(43, 93, 224, 0.4);
+  background-image: 
+    linear-gradient(90deg, transparent, rgba(43, 93, 224, 0.3) 2px, transparent 2px),
+    linear-gradient(rgba(43, 93, 224, 0.2) 1px, transparent 1px);
+  background-size: 40px 20px;
+  opacity: 0.7;
+  box-shadow: 0 0 15px rgba(43, 93, 224, 0.2);
+}
+
+.market-symbols {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  opacity: 0.25;
+}
+
+.market-symbols span {
+  font-size: 3.5rem;
+  color: rgba(43, 93, 224, 0.7);
+  margin: 2rem;
+  animation: floatSymbol 10s infinite ease-in-out;
+  opacity: 0.5;
+  text-shadow: 0 0 10px rgba(43, 93, 224, 0.5);
+}
+
+.market-symbols span:nth-child(1) { animation-delay: 0s; }
+.market-symbols span:nth-child(2) { animation-delay: 2s; }
+.market-symbols span:nth-child(3) { animation-delay: 4s; }
+.market-symbols span:nth-child(4) { animation-delay: 6s; }
+.market-symbols span:nth-child(5) { animation-delay: 8s; }
+
+@keyframes marketPulse {
+  0% { transform: scale(0); opacity: 0.7; box-shadow: 0 0 5px rgba(43, 93, 224, 0.3); }
+  50% { opacity: 0.2; box-shadow: 0 0 30px rgba(43, 93, 224, 0.5); }
+  100% { transform: scale(3); opacity: 0; box-shadow: 0 0 0 rgba(43, 93, 224, 0); }
+}
+
+@keyframes floatSymbol {
+  0%, 100% { transform: translateY(0) rotate(0deg); text-shadow: 0 0 10px rgba(43, 93, 224, 0.5); }
+  50% { transform: translateY(-20px) rotate(5deg); text-shadow: 0 0 20px rgba(43, 93, 224, 0.8); }
 }
 </style>
