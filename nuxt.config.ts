@@ -7,7 +7,8 @@ export default defineNuxtConfig({
   },
   ssr: false, // Github pages require
   app: {
-    baseURL: '/wisefett-web/', // GitHub Pages 子路径 - 取消注释，启用此行
+    // baseURL: '/wisefett-web/', // GitHub Pages 子路径 - 取消注释，启用此行
+    baseURL: '/',
     buildAssetsDir: '/static/',
     head: {
       title: 'WiseFett - AI 增强型投资决策支持系统',
