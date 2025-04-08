@@ -47,6 +47,26 @@ if [ -d "public/update" ]; then
   echo "更新文件已复制到dist目录"
 fi
 
+# 修复HTML文件中的静态资源路径
+echo "修复HTML文件中的静态资源路径..."
+if [ -f "dist/index.html" ]; then
+  echo "修改index.html文件中的路径..."
+  # 修复错误的路径，替换 /wisefett-web/static/ 为 /static/
+  sed -i.bak 's|/wisefett-web/static/|/static/|g' dist/index.html
+  if [ -f "dist/index.html.bak" ]; then
+    rm dist/index.html.bak
+  fi
+fi
+
+# 检查是否有其他HTML文件需要修复
+find dist -name "*.html" -not -path "dist/index.html" | while read html_file; do
+  echo "修改 $html_file 文件中的路径..."
+  sed -i.bak 's|/wisefett-web/static/|/static/|g' "$html_file"
+  if [ -f "${html_file}.bak" ]; then
+    rm "${html_file}.bak"
+  fi
+done
+
 # 进入 dist 目录
 cd dist
 
@@ -95,4 +115,4 @@ else
   echo "推送成功！"
 fi
 
-echo "部署完成！请访问 https://1510207073.github.io/wisefett-web/"
+echo "部署完成！请访问 https://wisefett.wyld.cc 检查更新是否成功"
