@@ -203,13 +203,10 @@
                 </div>
                 <h3 class="mb-3">macOS</h3>
                 <p class="mb-2">macOS 10.15及以上</p>
-                <a :href="downloadUrl" class="btn secondary download-with-select">
+                <a :href="macDownloadUrl" @click="trackDownload('macOS', detectedArch)" class="btn secondary">
                   下载 macOS 版本
-                  <span class="chip-select-wrapper">
-                    - <select v-model="selectedMacVersion" class="inline-select-btn">
-                      <option value="x64">Intel</option>
-                      <option value="arm64">Apple Silicon</option>
-                    </select>
+                  <span v-if="detectedArch" class="detected-arch">
+                    ({{ archDisplay }})
                   </span>
                 </a>
               </div>
@@ -234,7 +231,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
 // 导入 Swiper 核心组件
 import { Swiper, SwiperSlide } from 'swiper/vue';
 // 导入需要的模块
@@ -246,12 +243,78 @@ import 'swiper/css/pagination';
 const swiperInstance = ref(null);
 const activeIndex = ref(0);
 const sections = ['hero', 'value', 'download'];
-const selectedMacVersion = ref('x64');
 
-const downloadUrl = computed(() => {
-  const baseUrl = 'https://github.com/1510207073/wisefett-updates/blob/main/update/mac/WiseFett_0.1.0_arm64.dmg';
-  return `${baseUrl}${selectedMacVersion.value}.dmg`;
+// 架构检测
+const detectedArch = ref(null);
+
+// 架构显示名称
+const archDisplay = computed(() => {
+  return detectedArch.value === 'arm64' ? 'Apple Silicon' : 'Intel';
 });
+
+// 根据架构生成下载URL
+const macDownloadUrl = computed(() => {
+  const version = '0.1.0'; // 这里应从配置或API获取
+  const arch = detectedArch.value || 'universal';
+  const filename = `WiseFett_${version}_${arch}.dmg`;
+  const baseUrl = `https://wisefett.wyld.cc/update/mac/${filename}`;
+  return baseUrl;
+});
+
+// 检测用户设备的CPU架构
+function detectArch() {
+  // 使用UserAgent和CPU特性检测苹果设备架构
+  const userAgent = navigator.userAgent.toLowerCase();
+  
+  // Apple Silicon 设备通常会在 UserAgent 中包含 "mac" 并且 CPU 包含 "AppleWebKit"
+  if (userAgent.includes('mac') && navigator.userAgentData) {
+    // 现代浏览器可能支持 userAgentData API
+    try {
+      navigator.userAgentData.getHighEntropyValues(['architecture', 'platform', 'platformVersion'])
+        .then(ua => {
+          if (ua.architecture === 'arm' || ua.architecture === 'arm64') {
+            detectedArch.value = 'arm64';
+          } else {
+            detectedArch.value = 'x64';
+          }
+        })
+        .catch(() => {
+          // 如果无法获取高熵值，使用备用检测方法
+          fallbackArchDetection();
+        });
+    } catch (e) {
+      fallbackArchDetection();
+    }
+  } else {
+    fallbackArchDetection();
+  }
+}
+
+// 备用架构检测方法
+function fallbackArchDetection() {
+  const userAgent = navigator.userAgent.toLowerCase();
+  
+  // 检查已知的Apple Silicon指标
+  if (
+    // MacOS 11+ on Apple Silicon 有时可通过性能特征检测
+    (userAgent.includes('mac') && navigator.hardwareConcurrency > 8) ||
+    // 某些浏览器在Apple Silicon上可能会有特殊标记
+    userAgent.includes('macintosh') && /(apple.*silicon|m1|m2)/i.test(userAgent)
+  ) {
+    detectedArch.value = 'arm64';
+  } else if (userAgent.includes('mac') || userAgent.includes('macintosh')) {
+    detectedArch.value = 'x64';
+  } else {
+    // 非Mac设备
+    detectedArch.value = 'universal';
+  }
+}
+
+// 跟踪下载事件
+function trackDownload(platform, arch) {
+  console.log(`用户下载 ${platform} 版本，架构: ${arch}`);
+  // 这里可以添加分析代码
+}
 
 // 获取 Swiper 实例
 const onSwiper = (swiper) => {
@@ -276,6 +339,9 @@ onMounted(() => {
     e.preventDefault();
     navigateToSlide(2);
   });
+  
+  // 检测用户设备架构
+  detectArch();
 });
 </script>
 
@@ -1697,5 +1763,12 @@ a {
 @keyframes floatSymbol {
   0%, 100% { transform: translateY(0) rotate(0deg); text-shadow: 0 0 10px rgba(43, 93, 224, 0.5); }
   50% { transform: translateY(-20px) rotate(5deg); text-shadow: 0 0 20px rgba(43, 93, 224, 0.8); }
+}
+
+/* 添加架构显示样式 */
+.detected-arch {
+  display: inline-block;
+  font-size: 0.9em;
+  margin-left: 5px;
 }
 </style>
