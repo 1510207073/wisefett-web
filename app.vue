@@ -249,7 +249,7 @@ const sections = ['hero', 'value', 'download'];
 const selectedMacVersion = ref('x64');
 
 const downloadUrl = computed(() => {
-  const baseUrl = 'https://github.com/bitrhythm/wisefett/releases/download/v0.1.0/wisefett-macos-';
+  const baseUrl = 'https://github.com/1510207073/wisefett-updates/blob/main/update/mac/WiseFett_0.1.0_arm64.dmg';
   return `${baseUrl}${selectedMacVersion.value}.dmg`;
 });
 
