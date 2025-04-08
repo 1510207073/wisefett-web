@@ -7,8 +7,9 @@ export default defineNuxtConfig({
   },
   ssr: false, // Github pages require
   app: {
-    // baseURL: '/wisefett-web/', // GitHub Pages 子路径 - 取消注释，启用此行
-    baseURL: '/',
+    // 如果使用自定义域名 wisefett.wyld.cc 则不需要基础路径
+    // 如果使用 GitHub Pages 则需要基础路径 /wisefett-web/
+    baseURL: '/', // 使用根路径，适合自定义域名
     buildAssetsDir: '/static/',
     head: {
       title: 'WiseFett - AI 增强型投资决策支持系统',
@@ -18,7 +19,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'WiseFett是一款AI增强型投资决策支持系统，为投资者提供智能分析和决策支持' }
       ],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/wisefett-web/images/favicon.svg' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/images/favicon.svg' }, // 移除 wisefett-web 前缀
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap' }
       ]

@@ -68,15 +68,9 @@ git add .gitattributes
 git config user.name "WiseFett Deployer"
 git config user.email "deploy@wisefett.com"
 
-# 确保修复GitHub Pages的基本URL问题，检查所有HTML文件中的资源路径
-echo "检查HTML文件中的资源路径..."
-if [ -f "index.html" ]; then
-  # 确保所有静态资源引用都有正确的基础路径
-  echo "修复index.html中的资源路径..."
-  sed -i.bak 's|href="/static/|href="/wisefett-web/static/|g' index.html
-  sed -i.bak 's|src="/static/|src="/wisefett-web/static/|g' index.html
-  rm index.html.bak
-fi
+# 使用自定义域名
+echo "设置自定义域名..."
+echo "wisefett.wyld.cc" > CNAME
 
 # 添加所有文件
 echo "添加所有文件到Git..."
