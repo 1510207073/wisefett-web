@@ -712,10 +712,11 @@ a {
 }
 
 .logo-text {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  /* Increase font-weight for boldness */
   font-weight: 700;
   font-size: 32px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: var(--light-text);
   margin: 0;
   position: relative;
@@ -724,11 +725,11 @@ a {
 }
 
 .logo-text-highlight {
-  font-weight: 800;
+  /* Increase font-weight for boldness */
+  font-weight: 700;
   color: var(--secondary-color);
   position: relative;
-  /* font-style: italic; */
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
   transition: all 0.3s ease;
 }
 
@@ -754,21 +755,19 @@ a {
 
 .logo-badge {
   position: absolute;
-  top: -8px;
-  right: -25px;
-  font-size: 12px;
-  color: var(--secondary-color);
-  background-color: var(--light-text);
-  padding: 2px 5px;
+  top: -6px;
+  right: -28px;
+  font-size: 11px;
+  color: var(--light-text);
+  background-color: var(--secondary-color);
+  padding: 2px 4px;
   border-radius: 4px;
   font-weight: bold;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* transform: rotate(10deg); */
   transition: all 0.3s ease;
 }
 
 .logo-link:hover .logo-badge {
-  transform: rotate(15deg) scale(1.1);
+  transform: scale(1.1);
 }
 
 .slogan {
@@ -893,7 +892,8 @@ a {
 }
 
 .primary-noshadow:hover {
-  background-color: #1d4ad1;
+  /* Change hover background color to a lighter blue */
+  background-color: #4A7DF2;
   transform: translateY(-3px);
   box-shadow: none;
 }

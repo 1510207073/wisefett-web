@@ -23,16 +23,21 @@ export default defineNuxtConfig({
     baseURL: '/', // 使用根路径，适合自定义域名
     buildAssetsDir: '/static/',
     head: {
-      title: 'WiseFett - AI 增强型投资决策支持系统',
+      title: 'WiseFett - AI Investment Assistant',
+      htmlAttrs: {
+        lang: 'zh-CN'
+      },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'WiseFett是一款AI增强型投资决策支持系统，为投资者提供智能分析和决策支持' }
+        { key: 'description', name: 'description', content: 'WiseFett is an AI-powered tool to enhance investment decisions using technical analysis and artificial intelligence.' },
+        { name: 'format-detection', content: 'telephone=no' }
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/images/favicon.svg' }, // 移除 wisefett-web 前缀
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap' }
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap' },
+        { rel: 'icon', type: 'image/x-icon', href: '/images/favicon.ico' }
       ]
     }
   },

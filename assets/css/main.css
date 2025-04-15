@@ -87,7 +87,15 @@ a:hover {
 
 .btn.outline {
   background: transparent;
-  border: 2px solid currentColor;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+/* Add hover effect for outline button */
+.btn.outline:hover {
+  background-color: rgba(43, 93, 224, 0.1);
+  color: var(--secondary-color);
+  box-shadow: none;
 }
 
 /* 卡片样式 */
