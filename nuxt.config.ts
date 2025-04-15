@@ -1,3 +1,14 @@
+import { defineNuxtConfig } from 'nuxt/config'
+// import fs from 'fs' // No longer needed
+// import path from 'path' // No longer needed
+
+// No need to read package.json here
+// Nuxt will automatically load NUXT_PUBLIC_APP_VERSION from the .env file
+
+// Directly read the environment variable set during build
+const appVersion = process.env.BUILD_TIME_APP_VERSION || '0.0.0' // Default if not set
+console.log('[Nuxt Config] Build time app version from ENV:', appVersion);
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
@@ -31,6 +42,15 @@ export default defineNuxtConfig({
   ],
   
   modules: [
-    // 如果需要，可以在这里添加更多的Nuxt模块
-  ]
+    '@nuxt/ui'
+  ],
+
+  runtimeConfig: {
+    // Nuxt will automatically populate public.appVersion 
+    // from the NUXT_PUBLIC_APP_VERSION environment variable (loaded from .env)
+    public: {
+      // Manually assign the value to runtime config
+      appVersion: appVersion
+    }
+  }
 })

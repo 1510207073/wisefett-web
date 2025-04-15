@@ -232,6 +232,7 @@
 
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue';
+import { useRuntimeConfig } from '#app';
 // 导入 Swiper 核心组件
 import { Swiper, SwiperSlide } from 'swiper/vue';
 // 导入需要的模块
@@ -244,6 +245,9 @@ const swiperInstance = ref(null);
 const activeIndex = ref(0);
 const sections = ['hero', 'value', 'download'];
 
+const config = useRuntimeConfig();
+const appVersion = config.public.appVersion;
+
 // 架构检测
 const detectedArch = ref(null);
 
@@ -254,10 +258,10 @@ const archDisplay = computed(() => {
 
 // 根据架构生成下载URL
 const macDownloadUrl = computed(() => {
-  const version = '0.1.0'; // 这里应从配置或API获取
-  const arch = detectedArch.value || 'universal';
-  const filename = `WiseFett_${version}_${arch}.dmg`;
-  const baseUrl = `https://wisefett.wyld.cc/update/mac/${filename}`;
+  const version = appVersion; // 使用从 Nuxt 配置注入的版本号
+  const arch = detectedArch.value === 'arm64' ? 'arm64' : 'x64'; // 强制为 arm64 或 x64
+  const filename = `WiseFett_${version}_${arch}.zip`;
+  const baseUrl = `https://wyld-media.oss-cn-beijing.aliyuncs.com/wisefett/update/v${version}/mac/${filename}`;
   return baseUrl;
 });
 
@@ -334,6 +338,9 @@ const navigateToSlide = (index) => {
 };
 
 onMounted(() => {
+  const config = useRuntimeConfig();
+  console.log('Runtime config (public):', JSON.stringify(config.public, null, 2));
+  
   // 修复 "立即下载" 按钮点击事件
   document.querySelector('.scroll-to')?.addEventListener('click', (e) => {
     e.preventDefault();

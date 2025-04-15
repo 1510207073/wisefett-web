@@ -1,5 +1,13 @@
 #!/usr/bin/env sh
 
+# 接收从父脚本传递过来的版本号
+APP_VERSION=$1
+if [ -z "$APP_VERSION" ]; then
+  echo "错误：deploy.sh 需要一个版本号作为参数！"
+  exit 1
+fi
+echo "接收到的应用版本号: $APP_VERSION"
+
 # 确保你处于项目的根目录
 cd "$(dirname "$0")"
 
@@ -20,9 +28,17 @@ fi
 # 清除之前的构建
 rm -rf .output dist
 
-# 构建项目
+# 安装依赖
+echo "安装网站依赖..."
+pnpm install
+
+# 强制清除 Nuxt 缓存
+echo "清除 Nuxt 缓存 (.nuxt)..."
+rm -rf .nuxt
+
+# 构建项目，设置自定义环境变量
 echo "开始构建网站..."
-pnpm run generate
+BUILD_TIME_APP_VERSION=$APP_VERSION pnpm run generate
 
 # 检查 .output/public 目录是否存在
 if [ -d ".output/public" ]; then
@@ -98,6 +114,20 @@ git add -A
 
 # 提交更改
 git commit -m 'deploy: 更新应用版本'
+
+# 检查 dist 目录大小
+echo "检查 dist 目录大小..."
+du -sh .
+
+# 检查 update 目录大小 (如果存在)
+if [ -d "update" ]; then
+  echo "检查 update 目录大小 (如果存在)..."
+  du -sh update
+fi
+
+# 检查 Git LFS 状态
+echo "检查 Git LFS 状态..."
+git lfs ls-files
 
 # 推送到 gh-pages 分支
 echo "正在推送到GitHub Pages (使用Git LFS)..."
