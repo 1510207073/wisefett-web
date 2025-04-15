@@ -96,8 +96,13 @@
                 <div class="value-icon-container">
                   <svg class="value-icon" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="30" cy="30" r="30" fill="rgba(43, 93, 224, 0.08)"/>
-                    <path d="M20 35H30M20 25H40M20 30H35" stroke="#2B5DE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M15 20V40C15 41.1046 15.8954 42 17 42H43C44.1046 42 45 41.1046 45 40V20C45 18.8954 44.1046 18 43 18H17C15.8954 18 15 18.8954 15 20Z" stroke="#2B5DE0" stroke-width="2"/>
+                    <!-- Sliders for Customization -->
+                    <rect x="18" y="22" width="4" height="16" rx="2" stroke="#2B5DE0" stroke-width="2"/>
+                    <rect x="28" y="22" width="4" height="16" rx="2" stroke="#2B5DE0" stroke-width="2"/>
+                    <rect x="38" y="22" width="4" height="16" rx="2" stroke="#2B5DE0" stroke-width="2"/>
+                    <circle cx="20" cy="26" r="3" fill="#2B5DE0"/>
+                    <circle cx="30" cy="32" r="3" fill="#2B5DE0"/>
+                    <circle cx="40" cy="24" r="3" fill="#2B5DE0"/>
                   </svg>
                 </div>
                 <h3>灵活定制</h3>
@@ -107,13 +112,16 @@
                 <div class="value-icon-container">
                   <svg class="value-icon" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="30" cy="30" r="30" fill="rgba(43, 93, 224, 0.08)"/>
-                    <path d="M38 22C38 22 34.37 20 30 20C25.63 20 22 22 22 22" stroke="#2B5DE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 38C22 38 25.63 40 30 40C34.37 40 38 38 38 38" stroke="#2B5DE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 22V38" stroke="#2B5DE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M38 22V38" stroke="#2B5DE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M30 40V41.5C30 42.8807 28.8807 44 27.5 44H26" stroke="#2B5DE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="30" cy="30" r="5" stroke="#2B5DE0" stroke-width="2"/>
-                    <path d="M32.5 30C32.5 28.6193 31.3807 27.5 30 27.5" stroke="#2B5DE0" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Brain for AI Analysis -->
+                    <path d="M30 18C25 18 21 22 21 27C21 30 23 32.5 26 34M30 18C35 18 39 22 39 27C39 30 37 32.5 34 34M26 34C24 35.5 23 38 23 40C23 41.1046 23.8954 42 25 42H35C36.1046 42 37 41.1046 37 40C37 38 36 35.5 34 34M26 34C28 35 29 36 30 36C31 36 32 35 34 34" stroke="#2B5DE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M30 36V42" stroke="#2B5DE0" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Optional: Connection lines/dots -->
+                    <circle cx="20" cy="25" r="1.5" fill="#2B5DE0"/>
+                    <circle cx="40" cy="25" r="1.5" fill="#2B5DE0"/>
+                    <circle cx="25" cy="18" r="1.5" fill="#2B5DE0"/>
+                    <circle cx="35" cy="18" r="1.5" fill="#2B5DE0"/>
+                    <line x1="21" y1="25" x2="24" y2="27" stroke="#2B5DE0" stroke-width="1"/>
+                    <line x1="39" y1="25" x2="36" y2="27" stroke="#2B5DE0" stroke-width="1"/>
                   </svg>
                 </div>
                 <h3>智能分析</h3>
@@ -123,14 +131,9 @@
                 <div class="value-icon-container">
                   <svg class="value-icon" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="30" cy="30" r="30" fill="rgba(43, 93, 224, 0.08)"/>
-                    <rect x="15" y="18" width="30" height="24" rx="2" stroke="#2B5DE0" stroke-width="2"/>
-                    <path d="M15 25H45" stroke="#2B5DE0" stroke-width="2"/>
-                    <circle cx="22" cy="22" r="1.5" fill="#2B5DE0"/>
-                    <circle cx="27" cy="22" r="1.5" fill="#2B5DE0"/>
-                    <circle cx="32" cy="22" r="1.5" fill="#2B5DE0"/>
-                    <rect x="20" y="29" width="20" height="3" rx="1.5" fill="#2B5DE0" fill-opacity="0.3"/>
-                    <rect x="20" y="34" width="16" height="3" rx="1.5" fill="#2B5DE0" fill-opacity="0.3"/>
-                    <path d="M43 22.5L37 28.5L35 26.5" stroke="#2B5DE0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Eye for Intuitive UI -->
+                    <path d="M15 30C15 30 20 22 30 22C40 22 45 30 45 30C45 30 40 38 30 38C20 38 15 30 15 30Z" stroke="#2B5DE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="30" cy="30" r="5" stroke="#2B5DE0" stroke-width="2"/>
                   </svg>
                 </div>
                 <h3>简洁直观</h3>
@@ -140,18 +143,14 @@
                 <div class="value-icon-container">
                   <svg class="value-icon" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="30" cy="30" r="30" fill="rgba(43, 93, 224, 0.08)"/>
-                    <rect x="22" y="17" width="16" height="26" rx="2" stroke="#2B5DE0" stroke-width="2"/>
-                    <rect x="26" y="21" width="8" height="4" rx="1" stroke="#2B5DE0" stroke-width="1.5"/>
-                    <path d="M25 38H35" stroke="#2B5DE0" stroke-width="1.5"/>
-                    <path d="M23 28H37" stroke="#2B5DE0" stroke-width="1.5"/>
-                    <path d="M23 32H37" stroke="#2B5DE0" stroke-width="1.5"/>
-                    <path d="M30 17V15C30 14.4477 30.4477 14 31 14H36C36.5523 14 37 14.4477 37 15V17" stroke="#2B5DE0" stroke-width="1.5"/>
-                    <path d="M30 43V45C30 45.5523 29.5523 46 29 46H24C23.4477 46 23 45.5523 23 45V43" stroke="#2B5DE0" stroke-width="1.5"/>
-                    <path d="M15 27L20 27" stroke="#2B5DE0" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M15 33L20 33" stroke="#2B5DE0" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M40 27L45 27" stroke="#2B5DE0" stroke-width="1.5" stroke-linecap="round"/>
-                    <path d="M40 33L45 33" stroke="#2B5DE0" stroke-width="1.5" stroke-linecap="round"/>
-                    <circle cx="30" cy="42" r="1" fill="#2B5DE0"/>
+                    <!-- Simple Monitor -->
+                    <rect x="15" y="18" width="30" height="20" rx="2" stroke="#2B5DE0" stroke-width="2"/>
+                    <!-- Stand -->
+                    <rect x="25" y="38" width="10" height="4" rx="1" stroke="#2B5DE0" stroke-width="2"/>
+                    <!-- Simple "running" indicator inside monitor -->
+                    <circle cx="30" cy="28" r="3" stroke="#2B5DE0" stroke-width="2"/>
+                    <!-- Optional: Add a line connecting stand to monitor -->
+                    <line x1="30" y1="38" x2="30" y2="42" stroke="#2B5DE0" stroke-width="2"/>
                   </svg>
                 </div>
                 <h3>本地运行</h3>
@@ -936,7 +935,7 @@ a {
 
 /* 简介部分优化 */
 .value-section {
-  background-color: #181818;
+  background: radial-gradient(circle at center, #212121 0%, #121212 70%);
   color: var(--light-text);
   position: relative;
   overflow: hidden;
@@ -1072,6 +1071,8 @@ a {
   margin: 0 auto;
   filter: drop-shadow(0 4px 6px rgba(43, 93, 224, 0.2));
   transition: filter 0.3s ease, transform 0.3s ease;
+  display: flex;
+  justify-content: center;
 }
 
 .value-item:hover .value-icon {
@@ -1086,7 +1087,7 @@ a {
 
 /* 下载部分优化 */
 .download-section {
-  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  background: radial-gradient(circle at center, #212121 0%, #121212 70%);
   color: var(--light-text);
   position: relative;
   overflow: hidden;
@@ -1140,6 +1141,8 @@ a {
   margin-bottom: 25px;
   opacity: 0.9;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
 }
 
 .download-card:hover .download-icon {
@@ -1491,7 +1494,7 @@ a {
   height: 100%;
   z-index: 0;
   overflow: hidden;
-  opacity: 0.35;
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -1595,7 +1598,7 @@ a {
 
 /* 第二页 - 数据流动和分析 */
 .finance-bg-animation.alt {
-  opacity: 0.25;
+  opacity: 0.5;
 }
 
 .data-circle {
@@ -1684,7 +1687,7 @@ a {
 
 /* 第三页 - 市场脉冲 */
 .finance-bg-animation.third {
-  opacity: 0.2;
+  opacity: 0.5;
 }
 
 .market-pulse {
