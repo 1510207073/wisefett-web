@@ -15,7 +15,7 @@
               <li><a href="#hero" @click.prevent="navigateToSlide(0)">首页</a></li>
               <li><a href="#value" @click.prevent="navigateToSlide(1)">简介</a></li>
               <li><a href="#download" @click.prevent="navigateToSlide(2)">下载</a></li>
-              <li><a href="https://www.yuque.com/u12072733/os76d6/hr1gcwfipegvslim?singleDoc#" target="_blank" class="doc-link">文档</a></li>
+              <li><a href="https://www.yuque.com/u12072733/os76d6/hr1gcwfipegvslim?singleDoc# 《WiseFett - AI 股票分析工具》" class="doc-link" target="_blank" rel="noopener noreferrer">文档</a></li>
             </ul>
           </nav>
         </div>

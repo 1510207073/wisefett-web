@@ -50,6 +50,12 @@ export default defineNuxtConfig({
     '@nuxt/ui'
   ],
 
+  // Add explicit empty config for Nuxt Content
+  // content: {
+  //   // https://content.nuxt.com/docs/getting-started/configuration
+  //   // https://content.nuxt.com/docs/features/markdown-content
+  //   // https://content.nuxt.com/docs/features/markdown-content#markdown-options
+  // },
   runtimeConfig: {
     // Nuxt will automatically populate public.appVersion 
     // from the NUXT_PUBLIC_APP_VERSION environment variable (loaded from .env)
