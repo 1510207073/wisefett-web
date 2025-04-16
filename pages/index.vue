@@ -191,7 +191,7 @@
                   </div>
                   <h3 class="mb-3">Windows</h3>
                   <p class="mb-2">Windows 10 64位及以上</p>
-                  <a href="#windows-download-link" class="btn secondary">下载 Windows 版本</a>
+                  <a :href="windowsDownloadUrl" @click="trackDownload('Windows', 'x64')" class="btn secondary">下载 Windows 版本</a>
                 </div>
                 <div class="download-card card">
                   <div class="download-icon macos-icon">
@@ -253,6 +253,16 @@
     const baseUrl = `https://wyld-media.oss-cn-beijing.aliyuncs.com/wisefett/update/v${version}/mac/${filename}`;
     return baseUrl;
   });
+
+  const windowsDownloadUrl = computed(() => {
+    const version = appVersion;
+    // Link to the .zip file as requested
+    const filename = `WiseFett_${version}.zip`; 
+    // Construct the path similar to macOS, using the versioned subdirectory
+    const baseUrl = `https://wyld-media.oss-cn-beijing.aliyuncs.com/wisefett/update/v${version}/win/${filename}`;
+    return baseUrl;
+  });
+
   function detectArch() {
     const userAgent = navigator.userAgent.toLowerCase();
     
